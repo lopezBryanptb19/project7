@@ -32,27 +32,35 @@ function drawCircle(x, y, size, color) {
 }
 
 function drawTriangle(x, y, size, color) {
-  var triangle = document.createElementNS(namespace, "polygon")
+  var newtriangle = document.createElementNS(namespace, "polygon")
+  newtriangle.setAttribute("points", pts)
+  newtriangle.setAttribute("fill", color)
+  screen.appendChild(newtriangle);
 }
 
 // Step 3: Event listeners
 document.addEventListener("mousedown", function(e) {
-  var pt = transformPoint(e)
+  var pt = transformPoint(e, screen)
   shouldDraw = true
   var colorSelect = (document.getElementById("colorSelect").value)
   var shapeSelect = (document.getElementById("shapeSelect").value)
   var sizeSelect = (document.getElementById("sizeSelect").value)
-
+    if (shouldDraw == true) {
+      if (colorSelect == "red") {
+        colorSelect =
+      }
+    }
 })
 
 document.addEventListener("mousemove", function(e) {
   var colorSelect = (document.getElementById("colorSelect").value)
   var shapeSelect = (document.getElementById("shapeSelect").value)
   var sizeSelect = (document.getElementById("sizeSelect").value)
+  var pt = transformPoint(e, screen)
 })
 
 document.addEventListener("mouseup", function(e) {
-    var pt = transformPoint(e)
+    var pt = transformPoint(e, screen)
     shouldDraw = false
 
 })
